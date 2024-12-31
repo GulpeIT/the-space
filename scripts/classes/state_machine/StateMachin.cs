@@ -1,6 +1,6 @@
 using Godot;
 
-namespace TheSpace.scripts.classes.state_machine 
+namespace TheSpace.Classes.StateMachine
 {
     public partial class StateMachine : Node2D
     {

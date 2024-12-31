@@ -1,14 +1,12 @@
-using Godot;
-
-namespace TheSpace.scripts.classes.state_machine
+namespace TheSpace.Classes.StateMachine
 {
-    public class State
+    public abstract class State
     {
         public State GetState() => this;
         
-        public void Init() {}
-        public void PhysicUpdate() {}
-        public void ProcessUpdate() {}
-        public void Remove() {}
+        public virtual void Init() {}
+        public virtual void PhysicUpdate() {}
+        public virtual void ProcessUpdate() {}
+        public virtual void Remove() {}
     }
 }

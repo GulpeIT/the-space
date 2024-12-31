@@ -11,8 +11,18 @@ config_version=5
 [application]
 
 config/name="The Space"
+run/main_scene="res://scene/main_world.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
+boot_splash/bg_color=Color(0.027451, 0.00784314, 0.054902, 1)
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=320
+window/size/viewport_height=180
+window/size/window_width_override=1920
+window/size/window_height_override=1080
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
@@ -24,3 +34,8 @@ project/assembly_name="The Space"
 2d_physics/layer_2="player"
 2d_physics/layer_3="enemy"
 2d_physics/layer_4="game_obj"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.0400917, 0.0355, 0.05, 1)
