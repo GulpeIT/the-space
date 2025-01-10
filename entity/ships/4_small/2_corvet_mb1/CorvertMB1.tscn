@@ -1,20 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://csryujlplaafx"]
+[gd_scene load_steps=6 format=3 uid="uid://csryujlplaafx"]
 
-[ext_resource type="Script" path="res://scripts/classes/Ship.cs" id="1_0jm4j"]
+[ext_resource type="Script" path="res://entity/ships/4_small/2_corvet_mb1/CorvertMb1.cs" id="1_8po2k"]
 [ext_resource type="Texture2D" uid="uid://dwipynyjgdwe0" path="res://sprite/Ship3.png" id="2_g0ho3"]
-[ext_resource type="Script" path="res://scripts/resources/ShipStats.cs" id="2_w55x5"]
-
-[sub_resource type="Resource" id="Resource_ep7hi"]
-script = ExtResource("2_w55x5")
-CurrentShipType = 0
-Speed = 100.0
-Acceleration = 10.0
-RotationSpeed = 1.0
-Health = 100.0
-Armor = 2.5
-EnergyOutput = 10.0
-EnergyStorage = 100.0
-CurrentReactorType = 0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7oxpt"]
 radius = 7.0
@@ -29,10 +16,7 @@ atlas = ExtResource("2_g0ho3")
 region = Rect2(17, 3, 14, 6)
 
 [node name="CorvetMb1" type="CharacterBody2D"]
-platform_floor_layers = 4294901760
-script = ExtResource("1_0jm4j")
-Stats = SubResource("Resource_ep7hi")
-ShipTitle = "Corvet MB 1"
+script = ExtResource("1_8po2k")
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
@@ -45,7 +29,6 @@ texture = SubResource("AtlasTexture_0vnyv")
 offset = Vector2(0, 0.5)
 
 [node name="Ignite" type="Sprite2D" parent="Ship"]
-top_level = true
 position = Vector2(0, 11)
 texture = SubResource("AtlasTexture_2hk5e")
 offset = Vector2(0, 3)

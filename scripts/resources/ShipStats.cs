@@ -2,7 +2,7 @@ using Godot;
 
 namespace TheSpace.Resources
 {
-    [GlobalClass]
+    [GlobalClass][Tool]
     public partial class ShipStats : Resource
     {
         public enum ShipType

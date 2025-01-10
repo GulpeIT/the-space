@@ -1,12 +1,17 @@
+using Godot;
+
 namespace TheSpace.Classes.StateMachine
 {
-    public abstract class State
+    public abstract partial class State : Node
     {
-        public State GetState() => this;
+        public abstract void Init();
         
-        public virtual void Init() {}
-        public virtual void PhysicUpdate() {}
-        public virtual void ProcessUpdate() {}
-        public virtual void Remove() {}
+        public abstract void Delete();
+        
+        public virtual void Update(double delta) {}
+        
+        public virtual void UpdatePhysics(double delta) {}
+        
+        public virtual void UpdateByInput(InputEvent @event) {}
     }
 }

@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://dco2jc0haalok"]
+
+[ext_resource type="Script" path="res://entity/ships/4_small/1_player_pod/PlayerPod.cs" id="1_pnkjr"]
+[ext_resource type="Texture2D" uid="uid://rec0u1ra2b3a" path="res://sprite/player_pod.png" id="2_gwbb0"]
+[ext_resource type="PackedScene" uid="uid://d1wlrxujewcx7" path="res://scripts/componets/MoveComponent.tscn" id="2_wgwcx"]
+[ext_resource type="PackedScene" uid="uid://ch1e8hfitt3mn" path="res://scripts/classes/state_machine/StateMachine.tscn" id="4_svcfm"]
+[ext_resource type="Script" path="res://entity/ships/4_small/1_player_pod/statemachine/FlightState.cs" id="6_kqqhj"]
+[ext_resource type="Script" path="res://entity/ships/4_small/1_player_pod/statemachine/IdleState.cs" id="6_sasrg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kkba"]
+atlas = ExtResource("2_gwbb0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oirbq"]
+radius = 4.0
+height = 8.0
+
+[node name="PlayerPod" type="CharacterBody2D" node_paths=PackedStringArray("SM")]
+script = ExtResource("1_pnkjr")
+SM = NodePath("StateMachine")
+MaxSpeed = 80.0
+Acceleration = 2.5
+RotationMaxSpeed = 10.0
+RotationAcceleration = 1.5
+
+[node name="MoveComponent" parent="." node_paths=PackedStringArray("ParentObject") instance=ExtResource("2_wgwcx")]
+ParentObject = NodePath("..")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.98023e-08, 2.98023e-08)
+texture = SubResource("AtlasTexture_8kkba")
+
+[node name="CollisionBox" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_oirbq")
+
+[node name="StateMachine" parent="." instance=ExtResource("4_svcfm")]
+
+[node name="IdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("playerPod")]
+script = ExtResource("6_sasrg")
+playerPod = NodePath("../..")
+
+[node name="FlightState" type="Node" parent="StateMachine" node_paths=PackedStringArray("playerPod")]
+script = ExtResource("6_kqqhj")
+playerPod = NodePath("../..")

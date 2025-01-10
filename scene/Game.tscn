@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://n6gx1emns6u6"]
+
+[ext_resource type="PackedScene" uid="uid://cgsy0n7prrpq" path="res://scene/systems/StartSystem.tscn" id="1_1sb73"]
+[ext_resource type="PackedScene" uid="uid://dco2jc0haalok" path="res://entity/ships/4_small/1_player_pod/PlayerPod.tscn" id="2_73huu"]
+
+[node name="Game" type="Node"]
+
+[node name="StartSystem" parent="." instance=ExtResource("1_1sb73")]
+
+[node name="PlayerPod" parent="." instance=ExtResource("2_73huu")]
+position = Vector2(155, 116)

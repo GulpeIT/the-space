@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cgsy0n7prrpq"]
+
+[node name="StartSystem" type="Node2D"]
+
+[node name="ActionCamera" type="Camera2D" parent="."]
+position = Vector2(174, 98)
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
